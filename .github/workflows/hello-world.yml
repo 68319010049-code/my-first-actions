@@ -1,0 +1,17 @@
+name: Hello World Workflow
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # เปลี่ยนคำว่า Somnuek-001 เป็น ชื่อ-รหัส 3 ตัวท้ายของคุณได้เลยครับ
+    - name: Run a one-line script actions/Somnuek-001
+      run: echo "Hello, World!"
