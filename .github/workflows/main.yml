@@ -1,0 +1,35 @@
+name: Deploy Static Web to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ดึงโค้ดจาก Repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ตั้งค่า GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # อัปโหลดไฟล์เว็บไซต์
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      # Deploy เว็บไซต์
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
