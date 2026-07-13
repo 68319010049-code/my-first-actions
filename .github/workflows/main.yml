@@ -16,7 +16,7 @@ jobs:
    steps:
       # ใช้ Action สำเร็จรูปตามชื่อนักศึกษาและรหัสที่กำหนดในโจทย์ข้อ 2
       - name: Checkout repository
-        uses: actions/supattarawadee-68319010049@main
+       uses: actions/checkout@v4
 
       # ตั้งค่าระบบ GitHub Pages
       - name: Setup Pages
