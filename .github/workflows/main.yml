@@ -17,7 +17,7 @@ jobs:
     steps:
       # ดึงโค้ดจาก Repository
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/supattarawdee-68319010049
 
       # ตั้งค่า GitHub Pages
       - name: Setup Pages
