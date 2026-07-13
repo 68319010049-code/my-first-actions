@@ -13,23 +13,22 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+   steps:
+      # ใช้ Action สำเร็จรูปตามชื่อนักศึกษาและรหัสที่กำหนดในโจทย์ข้อ 2
+      - name: Checkout repository
+        uses: actions/supattarawadee-68319010049@main
 
-    steps:
-      # ดึงโค้ดจาก Repository
-      - name: Checkout code
-        uses: actions/supattarawdee-68319010049
-
-      # ตั้งค่า GitHub Pages
+      # ตั้งค่าระบบ GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      # อัปโหลดไฟล์เว็บไซต์
+      # อัปโหลดไฟล์ทั้งหมดในโฟลเดอร์หลักขึ้นระบบ
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: '.'
 
-      # Deploy เว็บไซต์
+      # ทำการ Deploy เว็บไซต์จริงไปยัง GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
