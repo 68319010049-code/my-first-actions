@@ -1,9 +1,9 @@
-name: Deploy Static Web to GitHub Pages
+name: Deploy Static Web - Supattarawadee Khunphetrsri 049
 
 on:
   push:
     branches:
-      - main
+      - main   # หาก branch หลักใน GitHub คุณชื่อ master ให้เปลี่ยนคำว่า main เป็น master ครับ
 
 permissions:
   contents: write
@@ -13,22 +13,14 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-   steps:
-      # ใช้ Action สำเร็จรูปตามชื่อนักศึกษาและรหัสที่กำหนดในโจทย์ข้อ 2
-      - name: Checkout repository
-       uses: actions/checkout@v4
+    steps:
+      # ใช้ Action ตามรูปแบบที่โจทย์ระบุ (actions/ชื่อนักศึกษา-รหัส3ตัวหลัง)
+      - name: Checkout Code
+        uses: actions/SupattarawadeeKhunphetrsri-049@v4
 
-      # ตั้งค่าระบบ GitHub Pages
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      # อัปโหลดไฟล์ทั้งหมดในโฟลเดอร์หลักขึ้นระบบ
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-
-      # ทำการ Deploy เว็บไซต์จริงไปยัง GitHub Pages
+      # Deploy ไปยัง GitHub Pages
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
