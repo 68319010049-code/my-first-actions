@@ -3,7 +3,7 @@ name: Deploy Static Web - Supattarawadee Khunphetrsri 049
 on:
   push:
     branches:
-      - main   # หาก branch หลักใน GitHub คุณชื่อ master ให้เปลี่ยนคำว่า main เป็น master ครับ
+      - main
 
 permissions:
   contents: write
@@ -14,9 +14,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # ใช้ Action ตามรูปแบบที่โจทย์ระบุ (actions/ชื่อนักศึกษา-รหัส3ตัวหลัง)
-      - name: Checkout Code
-        uses: actions/SupattarawadeeKhunphetrsri-049@v4
+      # แก้ไขบรรทัดนี้เป็น actions/checkout@v4
+      - name: Checkout Code - Supattarawadee Khunphetrsri 049
+        uses: actions/checkout@v4
 
       # Deploy ไปยัง GitHub Pages
       - name: Deploy to GitHub Pages
